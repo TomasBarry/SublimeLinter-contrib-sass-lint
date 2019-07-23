@@ -16,12 +16,10 @@ from SublimeLinter.lint import NodeLinter
 
 
 class Sass(NodeLinter):
-
     """Provides an interface to the sass-lint executable."""
 
     cmd = ('sass-lint', '--verbose', '--no-exit', '--format', 'stylish')
     config_file = ('--config', '.sass-lint.yml', '~')
-    npm_name = 'sass-lint'
     regex = (
         r'^\s+(?P<line>\d+):(?P<col>\d+)'
         r'\s+((?P<error>error)|(?P<warning>warning))'
@@ -40,9 +38,6 @@ class Sass(NodeLinter):
         'scss': 'scss',
         'sass': 'sass'
     }
-    version_args = '--version'
-    version_re = r'(?P<version>\d+\.\d+\.\d+)'
-    version_requirement = '>= 1.2.0'
     defaults = {
         'selector': 'source.sass'
     }
